@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoEditor Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef4ff;
+        }
+
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .navbar {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .navbar li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #357abd;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 140px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 50px 15px;
+        }
+
+        .box {
+            background-color: white;
+            width: 280px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px #ccc;
+        }
+
+        .box h2 {
+            color: #4a90e2;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            padding: 9px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button,
+        input[type="submit"] {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 9px 15px;
+            margin: 8px 3px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            background-color: #357abd;
+        }
+
+        .footer {
+            background-color: #357ded;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin: 0 30px 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 10px;
+            }
+
+            .box {
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1 id="pageTitle">📸 PhotoEditor</h1>
+
+        <ul class="navbar">
+
+            <li class="dropdown">
+                <a href="#">Home</a>
+
+                <div class="dropdown-content">
+                    <a href="#">Services</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">Pricing</a>
+                </div>
+            </li>
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Model</a></li>
+            <li><a href="#">Others</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Sign In -->
+
+        <div class="box">
+
+            <h2>Sign In</h2>
+
+            <form id="loginForm">
+
+                <label>Username / Email</label><br>
+                <input type="text" id="loginUsername">
+                <br><br>
+
+                <label>Password</label><br>
+                <input type="password" id="loginPassword">
+                <br><br>
+
+                <button type="button" id="showLoginPassword">
+                    Show Password
+                </button>
+
+                <input type="submit" value="Login">
+
+            </form>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+        <!-- Sign Up -->
+
+        <div class="box">
+
+            <h2>Sign Up</h2>
+
+            <form id="signupForm">
+
+                <label>Name</label><br>
+                <input type="text" id="signupName">
+                <br><br>
+
+                <label>Email</label><br>
+                <input type="email" id="signupEmail">
+                <br><br>
+
+                <label>Password</label><br>
+                <input type="password" id="signupPassword">
+                <br><br>
+
+                <button type="button" id="showSignupPassword">
+                    Show Password
+                </button>
+
+                <input type="submit" value="Register">
+
+            </form>
+
+            <p id="signupMessage"></p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 PhotoEditor | All Rights Reserved</p>
+    </div>
+
+
+    <!-- JavaScript Code -->
+
+    <script>
+
+        const loginForm = document.getElementById("loginForm");
+        const loginUsername = document.getElementById("loginUsername");
+        const loginPassword = document.getElementById("loginPassword");
+        const loginMessage = document.getElementById("loginMessage");
+
+        const signupForm = document.getElementById("signupForm");
+        const signupMessage = document.getElementById("signupMessage");
+
+        const pageTitle = document.getElementById("pageTitle");
+
+
+        // Login Form Validation
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            if (loginUsername.value === "" || loginPassword.value === "") {
+
+                loginMessage.textContent =
+                    "Please enter your username and password.";
+
+                loginMessage.style.color = "red";
+
+            } else {
+
+                loginMessage.textContent = "Welcome to PhotoEditor!";
+
+                loginMessage.style.color = "green";
+
+            }
+
+        });
+
+
+        // Sign Up Form
+
+        signupForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            signupMessage.textContent = "Registration successful!";
+
+            signupMessage.style.color = "green";
+
+        });
+
+
+        // Show / Hide Login Password
+
+        document.getElementById("showLoginPassword")
+            .addEventListener("click", function() {
+
+                if (loginPassword.type === "password") {
+
+                    loginPassword.type = "text";
+
+                    this.textContent = "Hide Password";
+
+                } else {
+
+                    loginPassword.type = "password";
+
+                    this.textContent = "Show Password";
+
+                }
+
+            });
+
+
+        // Show / Hide Signup Password
+
+        document.getElementById("showSignupPassword")
+            .addEventListener("click", function() {
+
+                const signupPassword =
+                    document.getElementById("signupPassword");
+
+                if (signupPassword.type === "password") {
+
+                    signupPassword.type = "text";
+
+                    this.textContent = "Hide Password";
+
+                } else {
+
+                    signupPassword.type = "password";
+
+                    this.textContent = "Show Password";
+
+                }
+
+            });
+
+
+        // Change Page Title on Click
+
+        pageTitle.addEventListener("click", function() {
+
+            pageTitle.textContent = "Welcome to PhotoEditor!";
+
+        });
+
+    </script>
+
+</body>
+</html>
