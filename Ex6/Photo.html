@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PhotoEditor - JavaScript Animation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef6ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+        }
+
+        .timing-section {
+            background-color: white;
+            width: 60%;
+            margin: 60px auto;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        h2 {
+            color: #4a90e2;
+        }
+
+        progress {
+            width: 80%;
+            height: 25px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        #progressText {
+            font-weight: bold;
+            color: #357abd;
+        }
+
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .timing-section {
+                width: 80%;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>📸 PhotoEditor</h1>
+    </header>
+
+    <div class="timing-section">
+
+        <h2>Photo Editing Progress</h2>
+
+        <p id="timingMessage"></p>
+
+        <label>Editing Progress:</label><br><br>
+
+        <progress id="progress" value="0" max="100"></progress>
+
+        <p id="progressText">0%</p>
+
+        <button onclick="startEditing()">Start Editing</button>
+
+        <button onclick="stopEditing()">Stop Editing</button>
+
+    </div>
+
+    <footer>
+        © 2026 PhotoEditor | All Rights Reserved
+    </footer>
+
+
+    <script>
+
+        // Timing Events
+
+        window.setTimeout(function() {
+
+            document.getElementById("timingMessage").textContent =
+                "Welcome to PhotoEditor! Start editing your photos.";
+
+        }, 3000);
+
+
+        let progressValue = 0;
+
+        let editingTimer;
+
+
+        function startEditing() {
+
+            editingTimer = window.setInterval(function() {
+
+                if (progressValue < 100) {
+
+                    progressValue += 10;
+
+                    document.getElementById("progress").value = progressValue;
+
+                    document.getElementById("progressText").textContent =
+                        progressValue + "%";
+
+                }
+
+            }, 1000);
+
+        }
+
+
+        function stopEditing() {
+
+            window.clearInterval(editingTimer);
+
+        }
+
+    </script>
+
+</body>
+</html>
