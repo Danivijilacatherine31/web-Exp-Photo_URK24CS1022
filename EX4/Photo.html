@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoEditor Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef6ff;
+        }
+
+        /* Header */
+        .header {
+            background: #4a90e2;
+            color: white;
+            padding: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        /* Navigation */
+        .navbar {
+            list-style: none;
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar li a:hover {
+            background: #357abd;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 150px;
+        }
+
+        .dropdown-content a {
+            color: black !important;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Forms */
+        .container {
+            margin: 50px;
+            text-align: center;
+        }
+
+        .box {
+            display: inline-block;
+            width: 300px;
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .box h2 {
+            color: #4a90e2;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password] {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type=submit]:hover {
+            background: #357abd;
+        }
+
+        /* Footer */
+        footer {
+            background: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 700px) {
+            .container {
+                margin: 20px 5px;
+            }
+
+            .box {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .navbar li a {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>📸 PhotoEditor</h1>
+
+        <ul class="navbar">
+
+            <li class="dropdown">
+                <a href="#">Home</a>
+
+                <div class="dropdown-content">
+                    <a href="#">Services</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">Pricing</a>
+                </div>
+            </li>
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Model</a></li>
+            <li><a href="#">Others</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Sign In -->
+        <div class="box">
+
+            <h2>Sign In</h2>
+
+            <form>
+
+                <label>Username / Email</label><br>
+                <input type="text"><br><br>
+
+                <label>Password</label><br>
+                <input type="password"><br><br>
+
+                <input type="submit" value="Login">
+
+            </form>
+
+        </div>
+
+        <!-- Sign Up -->
+        <div class="box">
+
+            <h2>Sign Up</h2>
+
+            <form>
+
+                <label>Name</label><br>
+                <input type="text"><br><br>
+
+                <label>Email</label><br>
+                <input type="email"><br><br>
+
+                <label>Password</label><br>
+                <input type="password"><br><br>
+
+                <input type="submit" value="Register">
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 PhotoEditor | All Rights Reserved
+    </footer>
+
+</body>
+</html>
